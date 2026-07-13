@@ -684,4 +684,10 @@ section {
 
     padding: 60px 20px;
 
+}/* Règ pou imaj yo */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
