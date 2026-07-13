@@ -1,27 +1,58 @@
-const form = document.getElementById("contactForm");
+ // ===============================
+// HOME PET SHOP - JAVASCRIPT
+// ===============================
 
-form.addEventListener("submit", function(event){
+// Message de bienvenue
+console.log("Bienvenue sur HomePetShop !");
 
-    event.preventDefault();
+// Attendre que la page soit chargée
+document.addEventListener("DOMContentLoaded", () => {
 
-    const nome = document.getElementById("nome").value.trim();
+    // ===============================
+    // Boutons
+    // ===============================
+    const buttons = document.querySelectorAll(".btn");
 
-    const email = document.getElementById("email").value.trim();
+    buttons.forEach(button => {
+        button.addEventListener("click", (event) => {
+            event.preventDefault();
 
-    const telefone = document.getElementById("telefone").value.trim();
+            alert("Obrigado pelo seu interesse! Em breve nossa equipe entrará em contato.");
+        });
+    });
 
-    const mensagem = document.getElementById("mensagem").value.trim();
+    // ===============================
+    // Animation des cards
+    // ===============================
+    const cards = document.querySelectorAll(
+        ".service-card, .testimonial-card, .diferencial-card"
+    );
 
-    if(nome === "" || email === "" || telefone === "" || mensagem === ""){
+    cards.forEach(card => {
 
-        alert("Preencha todos os campos.");
+        card.addEventListener("mouseenter", () => {
+            card.style.transform = "translateY(-10px)";
+        });
 
-        return;
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "translateY(0)";
+        });
 
-    }
+    });
 
-    alert("Mensagem enviada com sucesso!");
+    // ===============================
+    // Navbar Shadow
+    // ===============================
+    window.addEventListener("scroll", () => {
 
-    form.reset();
+        const header = document.querySelector("header");
+
+        if (window.scrollY > 50) {
+            header.style.boxShadow = "0 5px 20px rgba(0,0,0,.15)";
+        } else {
+            header.style.boxShadow = "none";
+        }
+
+    });
 
 });
